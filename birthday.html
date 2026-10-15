@@ -1,0 +1,315 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday 💜</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #7040a0;
+    background: linear-gradient(135deg, #ffffff, #ead7ff, #c9a5f5);
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: clamp(35px, 8vw, 60px);
+    margin: 30px 10px 8px;
+    animation: glow 2s infinite alternate;
+}
+
+.subtitle { padding: 0 15px; }
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px white; }
+    to { text-shadow: 0 0 25px #a56be7; }
+}
+
+.cake-area {
+    height: 350px;
+    position: relative;
+    width: 320px;
+    max-width: 95%;
+    margin: 25px auto;
+    animation: appear 1.5s ease;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.cake {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+}
+
+.tier {
+    position: relative;
+    margin: auto;
+    border-radius: 18px 18px 25px 25px;
+    box-shadow: inset 0 -10px 15px #8754a844,
+                0 8px 12px #7141a533;
+}
+
+.top {
+    width: 62%;
+    height: 110px;
+    background: linear-gradient(90deg, #fff, #f4e5ff, #fff);
+    border-bottom: 7px solid #d6b6f4;
+}
+
+.bottom {
+    width: 95%;
+    height: 125px;
+    background: linear-gradient(90deg, #b78ae5, #e6ccff, #b78ae5);
+    border-bottom: 8px solid #a775d2;
+}
+
+.top::before, .bottom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 17px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.bottom::before { background: #f3e7ff; }
+
+.number {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 65px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 3px 3px #76449d;
+}
+
+.top-label {
+    position: absolute;
+    top: 35px;
+    width: 100%;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.flowers {
+    position: absolute;
+    top: 12px;
+    width: 100%;
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+.candles {
+    position: absolute;
+    bottom: 239px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 24px;
+    z-index: 2;
+}
+
+.candle {
+    height: 48px;
+    width: 12px;
+    border-radius: 4px;
+    background: repeating-linear-gradient(
+        45deg, white 0 5px, #b78ae5 5px 10px);
+    position: relative;
+}
+
+.flame {
+    position: absolute;
+    top: -23px;
+    left: 0;
+    width: 13px;
+    height: 21px;
+    background: #ffb72b;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    box-shadow: 0 0 15px orange;
+    animation: flicker .5s infinite alternate;
+}
+
+@keyframes flicker {
+    to { transform: rotate(-40deg) scale(.8); }
+}
+
+button {
+    border: none;
+    border-radius: 30px;
+    padding: 14px 22px;
+    margin: 8px;
+    background: #8852bd;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover { background: #663495; }
+
+#wish {
+    display: none;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffffbb;
+    border-radius: 20px;
+    line-height: 1.8;
+}
+
+.timer {
+    max-width: 550px;
+    margin: 30px auto;
+    padding: 22px 10px;
+    background: #ffffffaa;
+    border: 1px solid white;
+    border-radius: 22px;
+}
+
+.clock {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.unit {
+    padding: 14px 10px;
+    min-width: 72px;
+    background: #eee0ff;
+    border-radius: 12px;
+}
+
+.unit strong {
+    display: block;
+    font-size: 28px;
+}
+
+footer { padding: 20px; }
+
+.particle {
+    position: fixed;
+    bottom: -30px;
+    pointer-events: none;
+    animation: rise 4s linear forwards;
+}
+
+@keyframes rise {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 360px) {
+    .unit { min-width: 60px; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎂 Happy Birthday! 💜</h1>
+<p class="subtitle">A beautiful day for a beautiful soul ✨</p>
+
+<h2>Made with love and wishes 🌸</h2>
+
+<div class="cake-area">
+    <div class="candles">
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+    </div>
+
+    <div class="cake">
+        <div class="tier top">
+            <div class="top-label">18 💜</div>
+            <div class="flowers">🌸 🤍 🌸</div>
+        </div>
+        <div class="tier bottom">
+            <div class="number">18</div>
+            <div class="flowers">💜 ✨ 🤍 ✨ 💜</div>
+        </div>
+    </div>
+</div>
+
+<h2>💌 Special Birthday Wishes</h2>
+<p>May your life be filled with happiness, love, success and beautiful memories!</p>
+
+<button onclick="openWish()">Open Your Birthday Wish 💌</button>
+<button onclick="party()">Celebrate 🎉</button>
+
+<div id="wish">
+    <h2>Happy Birthday, Superstar! 💜</h2>
+    May all your dreams come true. Keep smiling, keep shining,
+    and make every moment unforgettable! 🌷🎂
+</div>
+
+<div class="timer">
+    <h2>💜 Countdown to Your 25th Birthday 💜</h2>
+    <p id="message">Every second brings your special day closer!</p>
+    <div class="clock">
+        <div class="unit"><strong id="days">0</strong>Days</div>
+        <div class="unit"><strong id="hours">00</strong>Hours</div>
+        <div class="unit"><strong id="minutes">00</strong>Minutes</div>
+        <div class="unit"><strong id="seconds">00</strong>Seconds</div>
+    </div>
+</div>
+
+<footer>Made with 💜 just for you ✨</footer>
+
+<script>
+// CHANGE THIS to the person's actual 25th birthday.
+// Example: 15 October 2027 = new Date(2027, 9, 15)
+const birthday = new Date(2027, 9, 15, 0, 0, 0);
+
+function updateTimer() {
+    let remaining = birthday.getTime() - Date.now();
+
+    if (remaining <= 0) {
+        document.getElementById("message").textContent =
+            "🎉 Happy 25th Birthday! Enjoy your special day! 💜";
+        ["days", "hours", "minutes", "seconds"].forEach(id => {
+            document.getElementById(id).textContent = "00";
+        });
+        return;
+    }
+
+    document.getElementById("days").textContent =
+        Math.floor(remaining / 86400000);
+    document.getElementById("hours").textContent =
+        String(Math.floor(remaining / 3600000) % 24).padStart(2, "0");
+    document.getElementById("minutes").textContent =
+        String(Math.floor(remaining / 60000) % 60).padStart(2, "0");
+    document.getElementById("seconds").textContent =
+        String(Math.floor(remaining / 1000) % 60).padStart(2, "0");
+}
+
+function openWish() {
+    document.getElementById("wish").style.display = "block";
+    party();
+}
+
+function party() {
+    for (let i = 0; i < 45; i++) {
+        let p = document.createElement("span");
+        p.className = "particle";
+        p.textContent =
